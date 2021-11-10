@@ -114,12 +114,21 @@ life_exp_cleaned <- life_exp_ons %>%
   select(-c(Sex, AgeGroups)) %>%
   clean_names() %>%
   filter(two_year_intervals == "2006-08") %>%
-  select(administrative_geography, v4_2, sex) %>%
+  select(geography, administrative_geography, v4_2, sex) %>%
+  arrange(sex) %>% #Force alphabetical order of new columns
   pivot_wider(
     names_from = sex,
     names_prefix = "life_exp_",
     values_from = v4_2
-  )
+  ) %>%
+  mutate(
+    administrative_geography = case_when(
+      geography == "Glasgow City"      ~ "S12000046",
+      geography == "North Lanarkshire" ~ "S12000044",
+      TRUE                             ~ administrative_geography
+    ) #Reverting some codes from newer data to old ones
+  ) %>%
+  select(-geography)
 
 pubs_2018 %>%
   anti_join(
