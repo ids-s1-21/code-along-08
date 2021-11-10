@@ -43,7 +43,7 @@ time in the live session. You can see the cleanup script in the “data”
 folder of this repo.
 
 ``` r
-pubs_data <- readRDS("data/pubs-final.rds")
+pubs_data <- readRDS(here("data/pubs-final.rds"))
 ```
 
 The rest of this file will be filled in during the live session.

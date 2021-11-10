@@ -28,7 +28,7 @@ library(here)
 I've already done some of the cleanup and joining in advance to save time in the live session.  You can see the cleanup script in the "data" folder of this repo.
 
 ```{r read-data, message = FALSE}
-pubs_data <- readRDS("data/pubs-final.rds")
+pubs_data <- readRDS(here("data/pubs-final.rds"))
 ```
 
 The rest of this file will be filled in during the live session.

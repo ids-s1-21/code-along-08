@@ -4,7 +4,7 @@ library(janitor)
 library(here)
 
 pubs_ons <- read_excel(
-  "data/publichousesandbarsbylocalauthority20012018.xls",
+  here("data/publichousesandbarsbylocalauthority20012018.xls"),
   sheet = "Pubs size LA",
   skip = 2
 ) #Made using GUI as helper
@@ -37,7 +37,7 @@ pubs_cleaned <- pubs_ons %>%
   )
 
 pop_ons <- read_csv(
-  "data/MYEB1_detailed_population_estimates_series_UK_(2018).csv"
+  here("data/MYEB1_detailed_population_estimates_series_UK_(2018).csv")
 ) #Again using the GUI to help here
 
 pop_cleaned <- pop_ons %>%
@@ -56,7 +56,7 @@ pubs_pc <- pubs_cleaned %>%
   left_join(pop_cleaned, by = c("area_code" = "lad2018_code", "yr")) %>%
   mutate(pubs_per_capita = num_pubs/pop)
 
-saveRDS(pubs_pc, "data/pubs-pc.rds")
+saveRDS(pubs_pc, here("data/pubs-pc.rds"))
 
 pubs_2018 <- pubs_pc %>%
   filter(yr == "2018") %>%
@@ -64,7 +64,7 @@ pubs_2018 <- pubs_pc %>%
 
 
 area_ons <- read_csv(
-  "data/SAM_LAD_DEC_2018_UK.csv", 
+  here("data/SAM_LAD_DEC_2018_UK.csv"), 
   col_types = cols(...7 = col_skip(), ...8 = col_skip())
 ) #Again using GUI; we get a message that we can ignore because we
 #are renaming but also not importing certain columns
@@ -76,7 +76,7 @@ area_cleaned <- area_ons %>%
 
 
 weekly_pay_ons <- read_excel(
-  "data/Home Geography Table 8.1a   Weekly pay - Gross 2017.xls", 
+  here("data/Home Geography Table 8.1a   Weekly pay - Gross 2017.xls"), 
   sheet = "All",
   col_types = c(
     "text", "text", "numeric", "numeric", "skip", "numeric", "skip", "numeric",
@@ -107,7 +107,7 @@ weekly_pay_cleaned <- weekly_pay_ons %>%
 
 
 life_exp_ons <- read_csv(
-  "data/life-expectancy-by-local-authority-time-series-v1-filtered-2021-11-09T13-11-38Z.csv"
+  here("data/life-expectancy-by-local-authority-time-series-v1-filtered-2021-11-09T13-11-38Z.csv")
 )
 
 life_exp_cleaned <- life_exp_ons %>%
@@ -147,4 +147,4 @@ pubs_final <- pubs_2018 %>%
     by = c("area_code" = "administrative_geography")
   )
 
-saveRDS(pubs_final, "data/pubs-final.rds")
+saveRDS(pubs_final, here("data/pubs-final.rds"))
