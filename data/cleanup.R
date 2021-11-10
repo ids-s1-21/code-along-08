@@ -113,7 +113,7 @@ life_exp_ons <- read_csv(
 life_exp_cleaned <- life_exp_ons %>%
   select(-c(Sex, AgeGroups)) %>%
   clean_names() %>%
-  filter(two_year_intervals == "2006-08") %>%
+  filter(two_year_intervals == "2016-18") %>%
   select(geography, administrative_geography, v4_2, sex) %>%
   arrange(sex) %>% #Force alphabetical order of new columns
   pivot_wider(

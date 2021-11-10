@@ -4,8 +4,8 @@ Alex Homer
 11 November 2021
 
 This week’s data come from the UK’s [Office for National
-Statistics](https://www.ons.gov.uk/). We will be using the following
-datasets:
+Statistics](https://www.ons.gov.uk/) (ONS). We will be using the
+following datasets:
 
 -   [Public houses and bars by local
     authority](https://www.ons.gov.uk/businessindustryandtrade/business/activitysizeandlocation/datasets/publichousesandbarsbylocalauthority)
@@ -46,4 +46,30 @@ folder of this repo.
 pubs_data <- readRDS(here("data/pubs-final.rds"))
 ```
 
+Because I put these data together, let’s write a data dictionary:
+
+-   `area_code`: the [ONS area
+    code](https://en.wikipedia.org/wiki/ONS_coding_system) for each
+    district
+-   `area_name`: the name of each district
+-   `num_pubs`: the number of pubs in each district (2018)
+-   `pop`: the population of each district (2018)
+-   `pubs_per_capita`: the number of pubs per person (2018; obtained by
+    dividing `num_pubs` by `pop`)
+-   `country`: which UK nation each district belongs to (England,
+    Northern Ireland, Scotland or Wales)
+-   `median_pay_2017`: the median weekly pay, in pounds sterling, for
+    residents of each district (2017)
+-   `area_sqkm`: the area, in square kilometres, of each district to
+    mean high water level
+-   `pop_dens`: the population density (people per square kilometre) of
+    each district (2018; obtained by dividing `pop` by `area_sqkm`)
+-   `life_exp_female`, `life_exp_male`: the life expectancy at birth of
+    people born in each district, broken down by binary sex (2016–2018)
+    [1]
+
 The rest of this file will be filled in during the live session.
+
+[1] Sex and gender are, of course, more complicated than that, but the
+ONS only gives “male” and “female” figures; in the UK all birth
+certificates have one of these two options recorded.
