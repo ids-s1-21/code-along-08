@@ -42,6 +42,16 @@ Because I put these data together, let's write a data dictionary:
 - `median_pay_2017`: the median weekly pay, in pounds sterling, for residents of each district (2017)
 - `area_sqkm`: the area, in square kilometres, of each district to mean high water level
 - `pop_dens`: the population density (people per square kilometre) of each district (2018; obtained by dividing `pop` by `area_sqkm`)
-- `life_exp_female`, `life_exp_male`: the life expectancy at birth of people born in each district, broken down by binary sex (2016--2018) ^[Sex and gender are, of course, more complicated than that, but the ONS only gives "male" and "female" figures; in the UK all birth certificates have one of these two options recorded.]
+- `life_exp_female`, `life_exp_male`: the life expectancy at birth of people born in each district, broken down by binary sex (2006--2008) ^[Sex and gender are, of course, more complicated than that, but the ONS only gives "male" and "female" figures; in the UK all birth certificates have one of these two options recorded.]
 
-The rest of this file will be filled in during the live session.
+## EDA
+
+```{r glimpse}
+glimpse(pubs_data)
+```
+
+```{r see-NAs}
+
+```
+
+
