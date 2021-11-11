@@ -65,7 +65,7 @@ Because I put these data together, let’s write a data dictionary:
 -   `pop_dens`: the population density (people per square kilometre) of
     each district (2018; obtained by dividing `pop` by `area_sqkm`)
 -   `life_exp_female`, `life_exp_male`: the life expectancy at birth of
-    people born in each district, broken down by binary sex (2006–2008)
+    people born in each district, broken down by binary sex (2016–2018)
     [1]
 
 ## EDA
@@ -76,17 +76,20 @@ glimpse(pubs_data)
 
     ## Rows: 391
     ## Columns: 11
-    ## $ area_code       <chr> "E06000047", "E06000005", "E06000001", "E06000002", "E…
-    ## $ area_name       <chr> "County Durham", "Darlington", "Hartlepool", "Middlesb…
-    ## $ num_pubs        <dbl> 325, 70, 50, 65, 245, 85, 110, 120, 195, 105, 100, 145…
-    ## $ pop             <dbl> 526980, 106566, 93242, 140545, 320274, 136718, 197213,…
-    ## $ pubs_per_capita <dbl> 0.0006167217, 0.0006568699, 0.0005362390, 0.0004624853…
-    ## $ country         <chr> "England", "England", "England", "England", "England",…
-    ## $ median_pay_2017 <dbl> 439.0, 416.2, 431.6, 364.3, 413.2, 387.6, 435.7, 405.5…
-    ## $ area_sqkm       <dbl> 2231.5422, 197.4758, 93.5595, 53.8888, 5026.2114, 244.…
-    ## $ pop_dens        <dbl> 236.15059, 539.64081, 996.60644, 2608.05585, 63.72076,…
-    ## $ life_exp_female <dbl> 80.38, 80.48, 78.95, 79.56, 81.38, 80.66, 80.68, 80.54…
-    ## $ life_exp_male   <dbl> 76.69, 76.42, 75.22, 75.12, 77.84, 76.94, 76.08, 76.27…
+    ## $ area_code       <chr> "E06000047", "E06000005", "E06000001", "E06000002", "E~
+    ## $ area_name       <chr> "County Durham", "Darlington", "Hartlepool", "Middlesb~
+    ## $ num_pubs        <dbl> 325, 70, 50, 65, 245, 85, 110, 120, 195, 105, 100, 145~
+    ## $ pop             <dbl> 526980, 106566, 93242, 140545, 320274, 136718, 197213,~
+    ## $ pubs_per_capita <dbl> 0.0006167217, 0.0006568699, 0.0005362390, 0.0004624853~
+    ## $ country         <chr> "England", "England", "England", "England", "England",~
+    ## $ median_pay_2017 <dbl> 439.0, 416.2, 431.6, 364.3, 413.2, 387.6, 435.7, 405.5~
+    ## $ area_sqkm       <dbl> 2231.5422, 197.4758, 93.5595, 53.8888, 5026.2114, 244.~
+    ## $ pop_dens        <dbl> 236.15059, 539.64081, 996.60644, 2608.05585, 63.72076,~
+    ## $ life_exp_female <dbl> 81.46, 82.39, 81.33, 80.02, 82.71, 81.78, 81.41, 81.43~
+    ## $ life_exp_male   <dbl> 78.24, 78.72, 76.82, 75.27, 79.40, 77.99, 78.14, 77.46~
+
+We didn’t actually have time to do much with this, but we’ll come back
+to it next week!
 
 [1] Sex and gender are, of course, more complicated than that, but the
 ONS only gives “male” and “female” figures; in the UK all birth

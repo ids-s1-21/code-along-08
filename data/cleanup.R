@@ -107,13 +107,13 @@ weekly_pay_cleaned <- weekly_pay_ons %>%
 
 
 life_exp_ons <- read_csv(
-  here("data/life-expectancy-by-local-authority-time-series-v1-filtered-2021-11-09T13-11-38Z.csv")
+  here("data/life-expectancy-by-local-authority-time-series-v1-filtered-2021-11-11T12-11-26Z.csv")
 )
 
 life_exp_cleaned <- life_exp_ons %>%
   select(-c(Sex, AgeGroups)) %>%
   clean_names() %>%
-  filter(two_year_intervals == "2006-08") %>%
+  filter(two_year_intervals == "2016-18") %>%
   select(geography, administrative_geography, v4_2, sex) %>%
   arrange(sex) %>% #Force alphabetical order of new columns
   pivot_wider(
@@ -129,12 +129,6 @@ life_exp_cleaned <- life_exp_ons %>%
     ) #Reverting some codes from newer data to old ones
   ) %>%
   select(-geography)
-
-pubs_2018 %>%
-  anti_join(
-    life_exp_cleaned,
-    by = c("area_code" = "administrative_geography")
-  )
 
 #Joining everything
 
